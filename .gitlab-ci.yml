@@ -10,7 +10,6 @@ test:
 
 pages:
   script:
-    - 
     - pip install -U --upgrade-strategy=eager Nikola==8.0.0b2
     - nikola plugin --upgrade
     - nikola build
