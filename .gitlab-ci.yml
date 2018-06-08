@@ -4,15 +4,15 @@ image: python:3
 test:
   script:
   - apt-get install -y python-dev python-pip
-  - pip install -U --upgrade-strategy=eager Nikola==8.0.0b2
-  - nikola plugin --upgrade
   - nikola build
   except:
   - master
 
 pages:
   script:
-    - nikola build
+  - pip install -U --upgrade-strategy=eager Nikola==8.0.0b2
+  - nikola plugin --upgrade
+  - nikola build
   artifacts:
     paths:
     - public
