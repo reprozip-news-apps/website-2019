@@ -1,21 +1,16 @@
-image: registry.gitlab.com/paddy-hack/nikola
-image: python:3
+image: registry.gitlab.com/paddy-hack/nikola:8.0.0b2
 
 test:
   script:
   - nikola build
-  - apt-get install -y python-dev python-pip
   except:
   - master
 
 pages:
   script:
-    - pip install -U --upgrade-strategy=eager Nikola==8.0.0b2
-    - nikola plugin --upgrade
     - nikola build
   artifacts:
     paths:
     - public
   only:
   - master
-
