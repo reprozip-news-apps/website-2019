@@ -13,7 +13,6 @@ pages:
   - pip install webassets
   - pip install Nikola==7.8.15
   - pip install -U --upgrade-strategy=eager Nikola==8.0.0b2
-  - nikola plugin --upgrade
   - nikola build
   artifacts:
     paths:
