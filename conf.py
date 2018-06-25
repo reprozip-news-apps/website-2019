@@ -20,92 +20,15 @@ BLOG_AUTHOR = "RZ-DJ"  # (translatable)
 BLOG_TITLE = "Saving Data Journalism"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "https://savingjournalism.reprozip.org"
+SITE_URL = "https://savingjournalism.reprozip.org/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 BASE_URL = "https://savingjournalism.reprozip.org/"
 BLOG_EMAIL = "rz-dj@nyu.edu"
-BLOG_DESCRIPTION = "An informational website about our efforts to archive data journalism."  # (translatable)
-
-# Nikola is multilingual!
-#
-# Currently supported languages are:
-#
-# en        English
-# ar        Arabic
-# az        Azerbaijani
-# bg        Bulgarian
-# bs        Bosnian
-# ca        Catalan
-# cs        Czech [ALTERNATIVELY cz]
-# da        Danish
-# de        German
-# el        Greek [NOT gr]
-# eo        Esperanto
-# es        Spanish
-# et        Estonian
-# eu        Basque
-# fa        Persian
-# fi        Finnish
-# fr        French
-# gl        Galician
-# he        Hebrew
-# hi        Hindi
-# hr        Croatian
-# hu        Hungarian
-# id        Indonesian
-# it        Italian
-# ja        Japanese [NOT jp]
-# ko        Korean
-# lt        Lithuanian
-# nb        Norwegian (Bokmål)
-# nl        Dutch
-# pa        Punjabi
-# pl        Polish
-# pt        Portuguese
-# pt_br     Portuguese (Brazil)
-# ru        Russian
-# sk        Slovak
-# sl        Slovene
-# sq        Albanian
-# sr        Serbian (Cyrillic)
-# sr_latin  Serbian (Latin)
-# sv        Swedish
-# te        Telugu
-# th        Thai
-# tr        Turkish [NOT tr_TR]
-# uk        Ukrainian
-# ur        Urdu
-# zh_cn     Chinese (Simplified)
-# zh_tw     Chinese (Traditional)
-#
-# If you want to use Nikola with a non-supported language you have to provide
-# a module containing the necessary translations
-# (cf. the modules at nikola/data/themes/base/messages/).
-# If a specific post is not translated to a language, then the version
-# in the default language will be shown instead.
+BLOG_DESCRIPTION = "A site detailing our work to save data journalism apps."  # (translatable)
 
 # What is the default language?
 DEFAULT_LANG = "en"
-
-# What other languages do you have?
-# The format is {"translationcode" : "path/to/translation" }
-# the path will be used as a prefix for the generated pages location
-TRANSLATIONS = {
-    DEFAULT_LANG: "",
-    # Example for another language:
-    # "es": "./es",
-}
-
-# What will translated input files be named like?
-
-# If you have a page something.rst, then something.pl.rst will be considered
-# its Polish translation.
-#     (in the above example: path == "something", ext == "rst", lang == "pl")
-# this pattern is also used for metadata:
-#     something.meta -> something.pl.meta
-
-TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 # Links for the sidebar / navigation bar.  (translatable)
 # This is a dict.  The keys are languages, and values are tuples.
@@ -134,12 +57,19 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/about", "About"),
-        ("/categories/updates/", "Updates"),
-        ("/categories/jobs/", "Job Listing"),
-        ("https://github.com/reprozip-news-apps", "GitHub Organization &#8599;"),
-    ),
+    	('/about/', 'About the Project'),
+      (
+         (
+             ('/dev/', 'Web Archiving Developer'),
+             ('/student-assistant/', 'Graduate Student Assistant'),
+         ),
+         'Job Openings'
+      ),
+    )
 }
+
+
+
 
 # Alternative navigation links. Works the same way NAVIGATION_LINKS does,
 # although themes may not always support them. (translatable)
@@ -149,7 +79,7 @@ NAVIGATION_ALT_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootblog4"
+THEME = "custom"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
@@ -201,13 +131,7 @@ THEME_CONFIG = {
 # The difference between POSTS and PAGES is that POSTS are added
 # to feeds, indexes, tag lists and archives and are considered part
 # of a blog, while PAGES are just independent HTML pages.
-#
-# Finally, note that destination can be translated, i.e. you can
-# specify a different translation folder per language. Example:
-#     PAGES = (
-#         ("pages/*.rst", {"en": "pages", "de": "seiten"}, "page.tmpl"),
-#         ("pages/*.md", {"en": "pages", "de": "seiten"}, "page.tmpl"),
-#     )
+
 
 POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
@@ -219,6 +143,11 @@ PAGES = (
     ("pages/*.html", "", "page.tmpl"),
 )
 
+
+# Final location for the main blog page and sibling paginated pages is
+# output / TRANSLATION[lang] / INDEX_PATH / index-*.html
+# (translatable)
+INDEX_PATH = "posts"
 
 # Below this point, everything is optional
 
@@ -238,11 +167,11 @@ TIMEZONE = "America/New_York"
 
 # Date format used to display post dates. (translatable)
 # (str used by datetime.datetime.strftime)
-DATE_FORMAT = '%d-%m-%Y'
+# DATE_FORMAT = '%Y-%m-%d %H:%M'
 
 # Date format used to display post dates, if local dates are used. (translatable)
 # (str used by moment.js)
-# JS_DATE_FORMAT = 'DD-MM-YYYY'
+# JS_DATE_FORMAT = 'YYYY-MM-DD HH:mm'
 
 # Date fanciness.
 #
@@ -251,7 +180,7 @@ DATE_FORMAT = '%d-%m-%Y'
 # 2 = using a string like “2 days ago”
 #
 # Your theme must support it, Bootstrap already does.
-# DATE_FANCINESS = 1
+# DATE_FANCINESS = 0
 
 # While Nikola can select a sensible locale for each language,
 # sometimes explicit control can come handy.
@@ -364,7 +293,7 @@ WRITE_TAG_CLOUD = False
 
 # If TAG_PAGES_ARE_INDEXES is set to True, each tag's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
-TAG_PAGES_ARE_INDEXES = True
+# TAG_PAGES_ARE_INDEXES = False
 
 # Set descriptions for tag pages to make them more interesting. The
 # default is no description. The value is used in the meta description
@@ -437,7 +366,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
 # If CATEGORY_PAGES_ARE_INDEXES is set to True, each category's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
-CATEGORY_PAGES_ARE_INDEXES = True
+# CATEGORY_PAGES_ARE_INDEXES = False
 
 # Set descriptions for category pages to make them more interesting. The
 # default is no description. The value is used in the meta description
@@ -534,11 +463,6 @@ HIDDEN_CATEGORIES = []
 # Tag pages will still be generated.
 HIDDEN_AUTHORS = ['Guest']
 
-# Final location for the main blog page and sibling paginated pages is
-# output / TRANSLATION[lang] / INDEX_PATH / index-*.html
-# (translatable)
-INDEX_PATH = "posts"
-
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
 FRONT_INDEX_HEADER = {
@@ -632,10 +556,24 @@ REDIRECTIONS = []
 #     ]
 # }
 
+# github_deploy configuration
+# For more details, read the manual:
+# https://getnikola.com/handbook.html#deploying-to-github
+# You will need to configure the deployment branch on GitHub.
+GITHUB_SOURCE_BRANCH = 'src'
+GITHUB_DEPLOY_BRANCH = 'master'
+
+# The name of the remote where you wish to push to, using github_deploy.
+GITHUB_REMOTE_NAME = 'origin'
+
+# Whether or not github_deploy should commit to the source branch automatically
+# before deploying.
+GITHUB_COMMIT_SOURCE = True
+
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
 # to the location of conf.py
-OUTPUT_FOLDER = 'public'
+# OUTPUT_FOLDER = 'output'
 
 # where the "cache" of partial generated content should be located
 # default: 'cache'
@@ -871,7 +809,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-INDEX_TEASERS = True
+# INDEX_TEASERS = False
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -914,7 +852,7 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = 'Contact: <a href="mailto:{email}">{author}</a> | <a href="/about/">About our effort</a> | Website source <a href="https://gitlab.com/vickysteeves/savingjournalism-site">gitlab.com/vickysteeves/savingjournalism-site</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
@@ -962,8 +900,7 @@ COMMENT_SYSTEM_ID = ""
 # WARNING: if a page would conflict with the index file (usually
 #          caused by setting slug to `index`), the PAGE_INDEX
 #          will not be generated for that directory.
-# PAGE_INDEX = True
-
+# PAGE_INDEX = False
 # Enable comments on pages (i.e. not posts)?
 # COMMENTS_IN_PAGES = False
 # Enable comments on picture gallery pages?
@@ -972,7 +909,7 @@ COMMENT_SYSTEM_ID = ""
 # What file should be used for directory indexes?
 # Defaults to index.html
 # Common other alternatives: default.html for IIS, index.php
-# INDEX_FILE = "index.htm"
+# INDEX_FILE = "index.html"
 
 # If a link ends in /index.html,  drop the index.html part.
 # http://mysite/foo/bar/index.html => http://mysite/foo/bar/
@@ -1095,7 +1032,7 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
-COPY_SOURCES = False
+# COPY_SOURCES = True
 
 # Modify the number of Post per Index Page
 # Defaults to 10
@@ -1116,7 +1053,7 @@ COPY_SOURCES = False
 
 # Only include teasers in Atom and RSS feeds. Disabling include the full
 # content. Defaults to True.
-FEED_TEASERS = True
+# FEED_TEASERS = True
 
 # Strip HTML from Atom and RSS feed summaries and content. Defaults to False.
 # FEED_PLAIN = False
