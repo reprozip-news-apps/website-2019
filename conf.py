@@ -60,7 +60,6 @@ NAVIGATION_LINKS = {
     	('/about/', 'About the Project'),
       (
          (
-             ('/dev/', 'Web Archiving Developer'),
              ('/student-assistant/', 'Graduate Student Assistant'),
          ),
          'Job Openings'
