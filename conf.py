@@ -57,13 +57,8 @@ DEFAULT_LANG = "en"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-    	('/about/', 'About the Project'),
-      (
-         (
-             ('/student-assistant/', 'Graduate Student Assistant'),
-         ),
-         'Job Openings'
-      ),
+    ('/about/', 'About the Project'),
+    ('https://github.com/reprozip-news-apps', 'GitHub Organization ↗'),
     )
 }
 
