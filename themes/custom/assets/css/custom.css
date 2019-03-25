@@ -79,3 +79,31 @@ body a:hover {
   font-size:1em;
   margin-bottom:2em;
 }
+
+/* --------------------RESPONSIVE DISPLAY HEADINGS--------------------------*/
+@media (max-width: 575.98px) {
+    .display-1 {
+	font-size: 3rem;
+	font-weight: 300;
+	line-height: 1.0;
+    }
+
+    .display-2 {
+        font-size: 2.75rem;
+        font-weight: 300;
+        line-height: 1.0;
+    }
+
+    .display-3 {
+        font-size: 2.25rem;
+        font-weight: 300;
+        line-height: 1.0;
+    }
+
+    .display-4 {
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.0;
+    }
+
+}
