@@ -1,0 +1,4 @@
+Sitemap: https://savingjournalism.reprozip.org/sitemapindex.xml
+
+User-Agent: *
+Host: savingjournalism.reprozip.org
